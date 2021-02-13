@@ -34,12 +34,12 @@ class SignupPageTests(TestCase):
     
     # Function to test that we can return the webpage using the view name not URL 
     def test_view_url_by_name(self):
-        response = self.clinet.get(reverse('signup'))
+        response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
 
     # Function to test that we use the correct Template 
     def test_view_uses_correct_template(self):
-        response = self.clinet.get(reverse('signup'))
+        response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/signup.html')
 
