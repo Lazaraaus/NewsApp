@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Local
     'accounts',
     'pages',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Detroit'
 
 USE_I18N = True
 
@@ -122,10 +123,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
+
+# Custom Model declaration 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Login/Logout Redirect declaration 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Crispy forms template declaration 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Email declarations
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'hamptontechhouse@gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
